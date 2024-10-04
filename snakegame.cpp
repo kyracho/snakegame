@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int width = 60;  // Window width increased by 3 times
+const int width = 20;  // Window width
 const int height = 17;
 int x, y, fruitX, fruitY, score;
 int tailX[100], tailY[100];
