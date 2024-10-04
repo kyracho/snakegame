@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int width = 20;
+const int width = 60;  // Window width increased by 3 times
 const int height = 17;
 int x, y, fruitX, fruitY, score;
 int tailX[100], tailY[100];
@@ -27,12 +27,12 @@ void Setup() {
 
 void Draw() {
     clear();  // Clears the ncurses window
-    for (int i = 0; i < width + 2; i++) printw("#");
+    for (int i = 0; i < width + 2; i++) printw("_");
     printw("\n");
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            if (j == 0) printw("#");
+            if (j == 0) printw("|");
             if (i == y && j == x)
                 printw("O");  // Snake head
             else if (i == fruitY && j == fruitX)
@@ -47,12 +47,12 @@ void Draw() {
                 }
                 if (!print) printw(" ");
             }
-            if (j == width - 1) printw("#");
+            if (j == width - 1) printw("|");
         }
         printw("\n");
     }
 
-    for (int i = 0; i < width + 2; i++) printw("#");
+    for (int i = 0; i < width + 2; i++) printw("-");
     printw("\n");
     printw("Score: %d\n", score);
     refresh();  // Refresh the ncurses screen with the new drawing
@@ -61,10 +61,10 @@ void Draw() {
 void Input() {
     int ch = getch();  // Capture non-blocking input with ncurses
     switch (ch) {
-        case 'a': dir = LEFT; break;
-        case 'd': dir = RIGHT; break;
-        case 'w': dir = UP; break;
-        case 's': dir = DOWN; break;
+        case 'a': if (dir != RIGHT) dir = LEFT; break;
+        case 'd': if (dir != LEFT) dir = RIGHT; break;
+        case 'w': if (dir != DOWN) dir = UP; break;
+        case 's': if (dir != UP) dir = DOWN; break;
         case 'x': gameOver = true; break;
     }
 }
