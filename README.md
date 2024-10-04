@@ -21,12 +21,18 @@ Movement: Use the following keys to control the snake:
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 2. install ncurses using homebrew
-
-3. brew install ncurses
+   ```bash
+   brew install ncurses
 
 ## How to Run the Game Locally
 1. Clone the repo
 
-2. Compile the gsme with the ncurses library: `g++ snakegame.cpp -o snakegame -lncurses`
+2. Compile the gsme with the ncurses library
+   ```bash
+   g++ snakegame.cpp -o snakegame -lncurses
+4. Run the game
+   ```bash
+   ./snakegame
+   
+<img width="506" alt="Screenshot 2024-10-03 at 8 49 54 PM" src="https://github.com/user-attachments/assets/6138f494-e927-4ab3-9359-217c65004b98">
 
-3. Run the game with `./snakegame`
